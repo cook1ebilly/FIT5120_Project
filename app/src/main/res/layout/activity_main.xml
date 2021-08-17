@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4E72BE"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Dashboard"
+        android:textColor="#ffffff"
+        android:textSize="40dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200px"
+        android:orientation="horizontal"
+        android:paddingLeft="60px"
+        android:paddingRight="60px">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffffff">
+
+            <ImageView
+                android:id="@+id/img_1"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:background="@drawable/bg_ripple"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/plot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_1"
+                android:layout_centerHorizontal="true"
+                android:text="Statistics"
+                android:textColor="#ff0000" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60px"
+            android:layout_weight="1"
+            android:background="#ffffff">
+
+            <ImageView
+                android:id="@+id/img_2"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_ripple"
+                android:src="@mipmap/emergency" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_2"
+                android:layout_centerHorizontal="true"
+                android:text="Emergency Call"
+                android:textColor="#ff0000" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="60px"
+        android:paddingRight="60px">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffffff"
+
+            >
+
+
+
+            <ImageView
+                android:id="@+id/img_3"
+
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:background="@drawable/bg_ripple"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/map" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_3"
+                android:layout_centerHorizontal="true"
+                android:text="Map"
+                android:textColor="#ff0000" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60px"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            >
+
+            <ImageView
+                android:id="@+id/img_4"
+
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:background="@drawable/bg_ripple"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/alert" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_4"
+                android:layout_centerHorizontal="true"
+                android:text="Report Issue"
+                android:textColor="#ff0000" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="60px"
+        android:paddingRight="60px">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffffff"
+
+            >
+
+
+
+            <ImageView
+                android:id="@+id/img_6"
+                android:background="@drawable/bg_ripple"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/discussion" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_6"
+                android:layout_centerHorizontal="true"
+                android:text="Comment"
+                android:textColor="#ff0000" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60px"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            >
+
+            <ImageView
+                android:id="@+id/img_5"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_ripple"
+                android:src="@mipmap/team" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_5"
+                android:layout_centerHorizontal="true"
+                android:text="About Us"
+                android:textColor="#ff0000" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <!--  <SurfaceView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+      </SurfaceView>-->
+</LinearLayout>
