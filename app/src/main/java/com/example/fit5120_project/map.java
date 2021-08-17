@@ -23,6 +23,7 @@ public class map extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(map.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

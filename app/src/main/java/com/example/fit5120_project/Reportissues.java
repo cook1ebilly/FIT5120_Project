@@ -23,6 +23,7 @@ public class Reportissues extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(Reportissues.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

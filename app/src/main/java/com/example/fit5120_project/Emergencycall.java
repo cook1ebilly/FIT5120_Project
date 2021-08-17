@@ -24,6 +24,7 @@ public class Emergencycall extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(Emergencycall.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

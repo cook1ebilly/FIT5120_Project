@@ -23,6 +23,7 @@ public class Statistics extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(Statistics.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

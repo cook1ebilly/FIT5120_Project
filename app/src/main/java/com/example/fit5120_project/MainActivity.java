@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(MainActivity.this, Aboutus.class);
                 startActivity(intent);
+                finish();
             }
         });
         imageView1.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(MainActivity.this, Statistics.class);
                 startActivity(intent);
+                finish();
+
             }
         });
         imageView2.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(MainActivity.this, Emergencycall.class);
                 startActivity(intent);
+                finish();
+
             }
         });
         imageView3.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(MainActivity.this, map.class);
                 startActivity(intent);
+                finish();
+
             }
         });
         imageView4.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(MainActivity.this, Reportissues.class);
                 startActivity(intent);
+                finish();
+
             }
         });
         imageView6.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(MainActivity.this, Comment.class);
                 startActivity(intent);
+                finish();
+
             }
         });
 

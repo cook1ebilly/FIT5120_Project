@@ -24,6 +24,7 @@ public class Aboutus extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(Aboutus.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

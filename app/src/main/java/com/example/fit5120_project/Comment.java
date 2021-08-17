@@ -23,6 +23,7 @@ public class Comment extends AppCompatActivity {
                 // SecondActivty is the name of new created EmptyActivity.
                 Intent intent = new Intent(Comment.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
