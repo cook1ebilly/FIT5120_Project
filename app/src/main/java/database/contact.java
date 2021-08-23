@@ -3,7 +3,7 @@ package database;
 public class contact {
     private String name;
     private String phoneNumber;
-    private Integer bool;
+    private int bool;
 
     public String getName() {
         return name;
@@ -13,7 +13,7 @@ public class contact {
         return phoneNumber;
     }
 
-    public Integer getBool() {
+    public int getBool() {
         return bool;
     }
 
@@ -26,7 +26,7 @@ public class contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setBool(Integer bool) {
+    public void setBool(int bool) {
         this.bool = bool;
     }
 }

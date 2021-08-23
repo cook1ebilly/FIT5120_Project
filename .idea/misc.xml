@@ -6,15 +6,18 @@
         <entry key="app/src/main/res/drawable-v24/bg_ripple.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/drawable/bg_ripple.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/layout/about_us.xml" value="0.10142303867992508" />
-        <entry key="app/src/main/res/layout/activity_aboutus.xml" value="0.18697916666666667" />
+        <entry key="app/src/main/res/layout/activity_aboutus.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_comment.xml" value="0.18697916666666667" />
-        <entry key="app/src/main/res/layout/activity_emergencycall.xml" value="0.18697916666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_emergencycall.xml" value="0.21633445246174976" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26855906742163926" />
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/activity_reportissues.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/activity_statistics.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/comment.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/dialog_addcontacts.xml" value="0.21030042918454936" />
         <entry key="app/src/main/res/layout/emergency_call.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/listview_item.xml" value="0.19479166666666667" />
+        <entry key="app/src/main/res/layout/listview_item2.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/map.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/report_issue.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/statistics.xml" value="0.3390625" />

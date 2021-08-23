@@ -3,15 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4E72BE"
+    android:background="@mipmap/background2"
+    android:orientation="vertical"
 
     tools:context=".Aboutus">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/back_4"
         android:background="@drawable/bg_ripple"
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+    android:layout_margin="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@mipmap/previous"
 
 
@@ -22,9 +26,50 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
         android:text="About Us"
-        android:textColor="#ffffff"
-        android:textSize="40dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="40dp" /></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:id="@+id/video_1"/>
+
+
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <WebView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+         android:id="@+id/html"
+
+      />
+
+
+
+</ScrollView>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
 
 
 </LinearLayout>

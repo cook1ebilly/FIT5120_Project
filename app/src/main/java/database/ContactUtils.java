@@ -1,8 +1,12 @@
 package database;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +14,30 @@ import java.util.List;
 
 public class ContactUtils {
 
-
     private static String tableName = "contacts";
+
+    public static List<contact> getList(String fileName, Context context) {
+        List<contact> csvList = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(context.getResources().getAssets().open(fileName), "UTF-8"));//换成你的文件名
+            reader.readLine();
+            String line = "";
+
+            while ((line = reader.readLine()) != null) {
+                String item[] = line.split(",");
+
+                contact mode = new contact();
+                mode.setPhoneNumber(item[0]);
+                mode.setName(item[1]);
+                mode.setBool(Integer.parseInt(item[2]));
+                csvList.add(mode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.e("TAG", "getList: " + csvList.size());
+        return csvList;
+    }
 
     public static int insert(contact contact) {
         try {
@@ -62,25 +88,16 @@ public class ContactUtils {
             bean.setPhoneNumber(cursor.getString(cursor.getColumnIndex("phoneNumber")));
             bean.setName(cursor.getString(cursor.getColumnIndex("name")));
             bean.setBool(cursor.getInt(cursor.getColumnIndex("bool")));
+
             list.add(bean);
         }
         cursor.close();
         return list;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public  static void deleteAll() {
+       MyContext.dbHelper. db.execSQL("delete from "+tableName);
+    }
 
 
 }

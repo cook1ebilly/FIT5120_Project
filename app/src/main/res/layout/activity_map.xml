@@ -9,9 +9,9 @@
     <ImageView
         android:id="@+id/back_1"
         android:background="@drawable/bg_ripple"
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@mipmap/previous"
 
 
@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Map"
+        android:layout_marginTop="10dp"
         android:textColor="#ffffff"
         android:textSize="40dp" />
 
