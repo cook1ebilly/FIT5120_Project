@@ -13,9 +13,6 @@ public class contact {
         return phoneNumber;
     }
 
-    public int getBool() {
-        return bool;
-    }
 
 
     public void setName(String name) {
@@ -26,7 +23,4 @@ public class contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setBool(int bool) {
-        this.bool = bool;
-    }
 }

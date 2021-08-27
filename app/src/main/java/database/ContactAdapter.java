@@ -17,13 +17,11 @@ import java.util.List;
 
 public class ContactAdapter extends BaseAdapter {
     List<contact> list;
-    boolean flag;
     private LayoutInflater inflater;
 
-    public ContactAdapter(List<contact> list, Context context,boolean flag) {
+    public ContactAdapter(List<contact> list, Context context) {
         inflater = LayoutInflater.from(context);
         this.list = list;
-        this.flag=flag;
     }
 
     @Override
@@ -49,22 +47,15 @@ public class ContactAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ContactAdapter.ViewHolder viewHolder;
         if (convertView == null) {
-            if (flag) {
+
                 convertView = inflater.inflate(R.layout.listview_item2, parent, false);
 
 
 
-            } else {
-
-                convertView = inflater.inflate(R.layout.listview_item, parent, false);
-
-
-            }
 
                 viewHolder = new ContactAdapter.ViewHolder();
                  viewHolder.phoneNumber=convertView.findViewById(R.id.tv_item_phoneNumber);
                  viewHolder.delete=convertView.findViewById(R.id.btn_item_delete);
-                 viewHolder.rl=convertView.findViewById(R.id.rl);
 
             viewHolder.name = convertView.findViewById(R.id.tv_item_name);
                 convertView.setTag(viewHolder);
@@ -79,12 +70,7 @@ public class ContactAdapter extends BaseAdapter {
                 ((ListView) parent).performItemClick(v, position, 0);
             }
         });
-    if (!flag){
 
-
-        viewHolder.rl.setBackgroundResource(list.get(position).getBool()==1? R.mipmap.redrectangle:R.mipmap.yellow);
-
-    }
 
 
 
@@ -95,7 +81,6 @@ public class ContactAdapter extends BaseAdapter {
         TextView name;
         Button delete;
         TextView phoneNumber;
-        RelativeLayout rl;
 
 
 

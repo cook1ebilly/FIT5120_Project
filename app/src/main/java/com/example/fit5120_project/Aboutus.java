@@ -23,12 +23,16 @@ import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
+import com.shuyu.gsyvideoplayer.video.GSYADVideoPlayer;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Aboutus extends AppCompatActivity {
     static int permissionCode = 100;
-    private VideoView mVideoView;
+     StandardGSYVideoPlayer videoPlayer;
     MediaController controller;
     String[] permissions = new String[]{
             Manifest.permission.CALL_PHONE,
@@ -85,9 +89,8 @@ public class Aboutus extends AppCompatActivity {
         MediaController controller= new MediaController(this);
         videoView.setMediaController(controller);
         controller.setAnchorView(videoView);*/
-        mVideoView = findViewById(R.id.video_1);
+        initView();
         controller=new MediaController(this);
-        setupVideo();
 
 
 //        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -108,7 +111,7 @@ public class Aboutus extends AppCompatActivity {
         });
 
     }
-    private void startRequestPermission() {
+    /*private void startRequestPermission() {
         ActivityCompat.requestPermissions(this, permissions, 54321);
     }
 
@@ -200,7 +203,7 @@ public class Aboutus extends AppCompatActivity {
 
 
         try {
-            Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/" + R.raw.demo);
+            Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/" + R.raw.safe);
             mVideoView.setVideoURI(uri);
         } catch (Exception e) {
             e.printStackTrace();
@@ -212,8 +215,8 @@ public class Aboutus extends AppCompatActivity {
             mVideoView.stopPlayback();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
+        }*/
+   /* }
 
     //用户取消授权
     private void cancelPermissionDialog() {
@@ -221,5 +224,57 @@ public class Aboutus extends AppCompatActivity {
     }
 
 
+*/
+    private void initView() {
+        videoPlayer = findViewById(R.id.gsy_vv);
 
+        String vvUrl = "http://test.console.vdcvdc.com/Files/Advertisement/00a6424b2dbd40afb5c12f8567acc3ec.mp4";
+        videoPlayer.setUp(vvUrl, false, "Safe Save");
+
+        //增加封面
+        ImageView imageView = new ImageView(this);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageView.setImageResource(R.mipmap.ic_launcher);
+        videoPlayer.setThumbImageView(imageView);
+        //增加title
+        videoPlayer.getTitleTextView().setVisibility(View.VISIBLE);
+        //设置返回键
+        videoPlayer.getBackButton().setVisibility(View.VISIBLE);
+        //是否可以滑动调整
+        videoPlayer.setIsTouchWiget(true);
+        //设置返回按键功能
+        videoPlayer.getBackButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        videoPlayer.startPlayLogic();
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        videoPlayer.onVideoPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        videoPlayer.onVideoResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        GSYVideoManager.releaseAllVideos();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //释放所有
+        videoPlayer.setVideoAllCallBack(null);
+        super.onBackPressed();
+    }
 }

@@ -1,212 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background3"
-    android:orientation="vertical"
+    android:background="@mipmap/main"
+    android:paddingLeft="54px"
+    android:paddingRight="54px"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Safe Save"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Dashboard"
-        android:textColor="@color/black"
-        android:textSize="40dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200px"
-        android:orientation="horizontal"
-        android:paddingLeft="60px"
-        android:paddingRight="60px">
+
+        />
+
+    <ImageView
+        android:id="@+id/zero"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400px"
+        android:src="@mipmap/middle" />
+
+    <ImageView
+        android:layout_alignBottom="@id/zero"
+        android:layout_marginBottom="230px"
+        android:id="@+id/two"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:src="@mipmap/lefton" />
 
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff">
+    <ImageView
+        android:id="@+id/one"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:layout_alignBottom="@id/zero"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="230px"
+        android:src="@mipmap/righton" />
 
-            <ImageView
-                android:id="@+id/img_1"
-                android:layout_width="300px"
-                android:layout_height="300px"
-                android:background="@drawable/bg_ripple"
-                android:layout_centerHorizontal="true"
-                android:src="@mipmap/plot" />
+    <ImageView
+        android:layout_alignTop="@id/zero"
+        android:layout_marginTop="230px"
+        android:layout_alignLeft="@id/two"
+        android:id="@+id/three"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:src="@mipmap/leftdown" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_1"
-                android:layout_centerHorizontal="true"
-                android:text="Statistics"
-                android:textColor="#ff0000" />
-        </RelativeLayout>
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/zero"
+        android:layout_marginTop="230px"
+        android:id="@+id/four"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:src="@mipmap/rightdown" />
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60px"
-            android:layout_weight="1"
-            android:background="#ffffff">
-
-            <ImageView
-                android:id="@+id/img_2"
-                android:layout_width="300px"
-                android:layout_height="300px"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/bg_ripple"
-                android:src="@mipmap/emergency" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_2"
-                android:layout_centerHorizontal="true"
-                android:text="Emergency Call"
-                android:textColor="#ff0000" />
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:orientation="horizontal"
-        android:paddingLeft="60px"
-        android:paddingRight="60px">
+    <ImageView
+        android:id="@+id/i"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50px"
+        android:layout_marginTop="50px"
+        android:layout_marginEnd="50px"
+        android:layout_marginBottom="50px"
+        android:src="@mipmap/information" />
 
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-
-            >
-
-
-
-            <ImageView
-                android:id="@+id/img_3"
-
-                android:layout_width="300px"
-                android:layout_height="300px"
-                android:background="@drawable/bg_ripple"
-                android:layout_centerHorizontal="true"
-                android:src="@mipmap/map" />
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_3"
-                android:layout_centerHorizontal="true"
-                android:text="Map"
-                android:textColor="#ff0000" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60px"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            >
-
-            <ImageView
-                android:id="@+id/img_4"
-
-                android:layout_width="300px"
-                android:layout_height="300px"
-                android:background="@drawable/bg_ripple"
-                android:layout_centerHorizontal="true"
-                android:src="@mipmap/alert" />
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_4"
-                android:layout_centerHorizontal="true"
-                android:text="Report Issue"
-                android:textColor="#ff0000" />
-        </RelativeLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:orientation="horizontal"
-        android:paddingLeft="60px"
-        android:paddingRight="60px">
-
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-
-            >
-
-
-
-            <ImageView
-                android:id="@+id/img_6"
-                android:background="@drawable/bg_ripple"
-                android:layout_width="300px"
-                android:layout_height="300px"
-                android:layout_centerHorizontal="true"
-                android:src="@mipmap/discussion" />
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_6"
-                android:layout_centerHorizontal="true"
-                android:text="Comment"
-                android:textColor="#ff0000" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60px"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            >
-
-            <ImageView
-                android:id="@+id/img_5"
-                android:layout_width="300px"
-                android:layout_height="300px"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/bg_ripple"
-                android:src="@mipmap/team" />
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_5"
-                android:layout_centerHorizontal="true"
-                android:text="About Us"
-                android:textColor="#ff0000" />
-        </RelativeLayout>
-
-    </LinearLayout>
-
-
-    <!--  <SurfaceView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent">
-
-      </SurfaceView>-->
-</LinearLayout>
+</RelativeLayout>

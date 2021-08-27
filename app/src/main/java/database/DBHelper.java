@@ -34,8 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
             String sql = "CREATE TABLE contacts (\n" +
                     "    phoneNumber                      VARCHAR  PRIMARY KEY NOT NULL,\n" +
-                    "    name             VARCHAR NOT NULL,\n" +
-                    "    bool             INTEGER NOT NULL\n" +
+                    "    name             VARCHAR NOT NULL\n" +
+
 
             ");\n";
 

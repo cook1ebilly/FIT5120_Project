@@ -29,7 +29,6 @@ public class ContactUtils {
                 contact mode = new contact();
                 mode.setPhoneNumber(item[0]);
                 mode.setName(item[1]);
-                mode.setBool(Integer.parseInt(item[2]));
                 csvList.add(mode);
             }
         } catch (Exception e) {
@@ -45,7 +44,6 @@ public class ContactUtils {
             ContentValues contentValues = new ContentValues();
             contentValues.put("phoneNumber", contact.getPhoneNumber());
             contentValues.put("name", contact.getName());
-            contentValues.put("bool",contact.getBool());
             rec += MyContext.dbHelper.db.insert(tableName, null, contentValues);
             return rec;
         } catch (Exception e) {
@@ -68,7 +66,6 @@ public class ContactUtils {
             ContentValues contentValues = new ContentValues();
             contentValues.put("phoneNumber", contact.getPhoneNumber());
             contentValues.put("name", contact.getName());
-            contentValues.put("bool",contact.getBool());
             return MyContext.dbHelper.db.update(tableName, contentValues, null, null) > 0;
         } catch (Exception e) {
         }
@@ -87,7 +84,6 @@ public class ContactUtils {
             contact bean = new contact();
             bean.setPhoneNumber(cursor.getString(cursor.getColumnIndex("phoneNumber")));
             bean.setName(cursor.getString(cursor.getColumnIndex("name")));
-            bean.setBool(cursor.getInt(cursor.getColumnIndex("bool")));
 
             list.add(bean);
         }

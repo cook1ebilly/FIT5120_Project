@@ -34,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView imageView = findViewById(R.id.img_5);
-        ImageView imageView1 = findViewById(R.id.img_1);
-        ImageView imageView2 = findViewById(R.id.img_2);
-        ImageView imageView3 = findViewById(R.id.img_3);
-        ImageView imageView4 = findViewById(R.id.img_4);
-        ImageView imageView6 = findViewById(R.id.img_6);
+        ImageView imageView = findViewById(R.id.i);
+        ImageView imageView1 = findViewById(R.id.zero);
+        ImageView imageView2 = findViewById(R.id.one);
+        ImageView imageView3 = findViewById(R.id.two);
+        ImageView imageView4 = findViewById(R.id.three);
+        ImageView imageView6 = findViewById(R.id.four);
 
 
 
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 // Intent class will help to go to next activity using
                 // it's object named intent.
                 // SecondActivty is the name of new created EmptyActivity.
-                Intent intent = new Intent(MainActivity.this, Emergencycall.class);
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
                 finish();
 

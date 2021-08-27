@@ -22,35 +22,27 @@
     <EditText
         android:inputType="number"
         android:id="@+id/et_phone"
+        android:maxLength="10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_name"
         android:hint="Enter their phone number" />
 
 
-<CheckBox
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/checkbox"
-    android:text="Is this a emergency call?"
-    android:layout_below="@id/et_phone"
-
-
-
-    />
     <Button
-
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/checkbox"
-        android:text="submit" />
+        android:layout_below="@+id/et_phone"
+        android:text="submit"
+        android:backgroundTint="@color/purple_500"
+        />
 
 
     <ListView
         android:id="@+id/lv_contacts"
         android:layout_width="match_parent"
-        android:layout_height="800px"
+        android:layout_height="800dp"
         android:layout_below="@id/btn_submit" />
 
     <Button
@@ -58,5 +50,7 @@
         android:layout_alignParentBottom="true"
         android:text="BACK TO PROFILE"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_500"
+        />
 </RelativeLayout>

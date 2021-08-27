@@ -33,10 +33,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <VideoView
+
+        <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+            android:id="@+id/gsy_vv"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
-            android:id="@+id/video_1"/>
+            android:layout_height="200dp"
+            />
+
 
 
 
