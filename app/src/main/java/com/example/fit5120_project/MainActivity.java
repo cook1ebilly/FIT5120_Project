@@ -55,6 +55,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -90,7 +91,7 @@ import database.TopicUtils;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleMap.OnMyLocationClickListener {
     List<Address> addressList;
     RelativeLayout report, contact, data, comment,rle;
-    ImageView soscall, about,map,help,helpcenter,cross1;
+    ImageView soscall, about,map,help,helpcenter,cross1,findlocation;
     private MapView mMapView;
     EditText searchbar;
     ListView listView_s;
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         contact = findViewById(R.id.contact);
         rle=findViewById(R.id.rle3);
         data = findViewById(R.id.data);
+        findlocation=findViewById(R.id.findlocation);
         cross1=findViewById(R.id.cancel1);
         comment = findViewById(R.id.comment);
         soscall = findViewById(R.id.soscall);
@@ -151,6 +153,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                 }
+
+            }
+        });
+
+        findlocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyContext.mylocation, 20));
 
             }
         });
@@ -365,10 +375,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             if (mMap != null) {
-                mMap.setMyLocationEnabled(true);
+                mMap.setMyLocationEnabled(false);
             }
         } else {
             PermissionUtils.requestPermission(this,
@@ -386,6 +397,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
       }
+        mMap.addMarker(new MarkerOptions().position(MyContext.mylocation).title("Your are here!").icon(BitmapDescriptorFactory.fromResource(R.mipmap.mylocation)));
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
@@ -705,9 +717,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         delete = view.findViewById(R.id.btn_cancel);
         back = view.findViewById(R.id.btn_ok);
         content=view.findViewById(R.id.topicinfo);
-        content.setText("Occur times:" + topicModelList.size() + "\n" + "Year:" + topicModelList.get(0).year + "\n" +
-                "Topic:" + topicModelList.get(0).topic + "\n" + "Description:" + topicModelList.get(0).description +
-                "\n" + "Address:" + getAddress(Double.valueOf(topicModelList.get(0).latitude), Double.valueOf(topicModelList.get(0).longitude)));
+        content.setText("Occur times:" + " 1" + "\n" + "Year: " + topicModelList.get(0).year + "\n" +
+                "Topic: " + topicModelList.get(0).topic + "\n" + "Description: " + topicModelList.get(0).description +
+                "\n" + "Address: " + getAddress(Double.valueOf(topicModelList.get(0).latitude), Double.valueOf(topicModelList.get(0).longitude)));
 
         builder.setView(view);
         builder.setOnDismissListener(new DialogInterface.OnDismissListener() {

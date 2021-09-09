@@ -61,6 +61,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/listview1"/>
 
+    <ImageView
+        android:id="@+id/findlocation"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="200dp"
+        android:src="@mipmap/melocation"
+
+        />
 
     <ImageView
         android:id="@+id/searchmap"
@@ -99,7 +109,7 @@
 
     <ImageView
         android:id="@+id/report"
-        android:layout_width="160px"
+        android:layout_width="180px"
         android:layout_height="130px"
         android:layout_centerHorizontal="true"
         android:src="@mipmap/incident" />
