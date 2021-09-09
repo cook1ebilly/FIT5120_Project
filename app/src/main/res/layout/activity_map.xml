@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version= "1.0" encoding= "utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas .android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4E72BE"
+    android:background="#ffffff"
+    tools:context=".map">
 
-    tools:context=".Aboutus">
     <ImageView
-        android:id="@+id/back_1"
-        android:background="@drawable/bg_ripple"
-        android:layout_margin="10dp"
+        android:id="@+id/back_2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_ripple"
         android:src="@mipmap/previous"
-
 
 
         />
@@ -21,11 +21,70 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Map"
         android:layout_marginTop="10dp"
-        android:textColor="#ffffff"
+        android:layout_toRightOf="@id/back_2"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Google Map"
+        android:textColor="#000000"
         android:textSize="40dp" />
 
 
-</LinearLayout>
+    <EditText
+
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/back_2"
+        android:hint="Starting point"
+        android:padding="5dp"
+        android:textColor="#7b7b7b" />
+
+
+
+
+    <EditText
+        android:id="@+id/end"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/start"
+        android:hint="Destination"
+        android:padding="5dp"
+        android:textColor="#7b7b7b" />
+    <Button
+        android:text="find"
+
+        android:layout_below="@id/end"
+        android:id="@+id/btn_go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mMapView"
+        android:layout_width="match_parent"
+        android:layout_height="960px"
+
+        android:layout_below="@id/btn_go" />
+    <ListView
+        android:id="@+id/listView_s"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start"
+
+        />
+    <ListView
+        android:id="@+id/listView_e"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/end"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mMapView"
+        android:layout_marginLeft="10px" />
+
+</RelativeLayout>

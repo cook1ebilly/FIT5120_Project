@@ -40,6 +40,16 @@ public class DBHelper extends SQLiteOpenHelper {
             ");\n";
 
             db.execSQL(sql);
+            sql = "CREATE TABLE topic (\n" +
+                    "    id                      VARCHAR  PRIMARY KEY NOT NULL,\n" +
+                    "    year             VARCHAR NOT NULL,\n" +
+                    "    longitude             VARCHAR NOT NULL,\n" +
+                    "    latitude             VARCHAR NOT NULL,\n" +
+                    "    topic             VARCHAR NOT NULL,\n" +
+                    "    description             VARCHAR NOT NULL\n" +
+                    ");\n";
+
+            db.execSQL(sql);
         } catch (Exception e) {
             Log.e(TAG, "DB Create Failed", e);
             throw e;

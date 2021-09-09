@@ -149,26 +149,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        if (ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.CALL_PHONE}, PERMISSION_CODE);
 
 
-        }
 
 
-        imageView2=findViewById(R.id.sos);
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                Uri data = Uri.parse("tel:" +phoneNumber);
-                intent.setData(data);
-                startActivity(intent);
-
-            }
-        });
 
 
         add.setOnClickListener(new View.OnClickListener() {

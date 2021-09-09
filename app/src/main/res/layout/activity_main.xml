@@ -1,79 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/main"
-    android:paddingLeft="54px"
-    android:paddingRight="54px"
+    android:background="@color/black"
+
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="100px"
+        android:src="@mipmap/logo"
+        android:id="@+id/title"/>
+
+
+    <ImageView
+        android:id="@+id/information"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_marginLeft="960px"
+        android:src="@mipmap/info" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="match_parent"
+        android:layout_height="1600px"
+        android:layout_below="@id/title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/title"
+        android:visibility="gone"
+        android:id="@+id/rle3"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Safe Save"
-        android:layout_centerHorizontal="true"
-        android:textSize="32sp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Where to go?"
+        android:id="@+id/searchbar"
 
         />
 
     <ImageView
-        android:id="@+id/zero"
-        android:layout_width="500px"
-        android:layout_height="500px"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="400px"
-        android:src="@mipmap/middle" />
-
-    <ImageView
-        android:layout_alignBottom="@id/zero"
-        android:layout_marginBottom="230px"
-        android:id="@+id/two"
-        android:layout_width="500px"
-        android:layout_height="500px"
-        android:src="@mipmap/lefton" />
-
-
-    <ImageView
-        android:id="@+id/one"
-        android:layout_width="500px"
-        android:layout_height="500px"
-        android:layout_alignBottom="@id/zero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="230px"
-        android:src="@mipmap/righton" />
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10px"
+        android:layout_marginBottom="4px"
+        android:id="@+id/cancel1"
+        android:src="@mipmap/cross" />
+
+    </RelativeLayout>
+    <ListView
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listview1"/>
+
 
     <ImageView
-        android:layout_alignTop="@id/zero"
-        android:layout_marginTop="230px"
-        android:layout_alignLeft="@id/two"
-        android:id="@+id/three"
-        android:layout_width="500px"
-        android:layout_height="500px"
-        android:src="@mipmap/leftdown" />
-
-    <ImageView
+        android:id="@+id/searchmap"
+        android:layout_width="120px"
+        android:layout_height="120px"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/zero"
-        android:layout_marginTop="230px"
-        android:id="@+id/four"
-        android:layout_width="500px"
-        android:layout_height="500px"
-        android:src="@mipmap/rightdown" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="90dp"
+        android:src="@mipmap/direction" />
 
     <ImageView
-        android:id="@+id/i"
+        android:id="@+id/help"
+
         android:layout_width="100px"
         android:layout_height="100px"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="50px"
-        android:layout_marginTop="50px"
-        android:layout_marginEnd="50px"
-        android:layout_marginBottom="50px"
-        android:src="@mipmap/information" />
 
 
+        android:src="@mipmap/help" />
+
+    <ToggleButton
+        android:id="@+id/find"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="140dp"
+        android:background="@mipmap/location"
+        android:text=""
+        android:textOff=""
+        android:textOn="" />
+
+<RelativeLayout
+    android:id="@+id/reportevent"
+    android:layout_width="240px"
+    android:layout_height="180px"
+    android:layout_alignParentBottom="true">
+
+    <ImageView
+        android:id="@+id/report"
+        android:layout_width="160px"
+        android:layout_height="130px"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/incident" />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@color/white"
+      android:layout_centerHorizontal="true"
+      android:textSize="10sp"
+      android:singleLine="true"
+      android:layout_below="@id/report"
+      android:text="Report Incident"/>
 </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contact"
+        android:layout_marginLeft="8px"
+        android:layout_width="240px"
+        android:layout_height="180px"
+        android:layout_toLeftOf="@id/soscall"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/contact1"
+            android:layout_width="160px"
+            android:layout_height="130px"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/call" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            android:layout_below="@id/contact1"
+            android:text="ICE Contact"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/soscall"
+        android:layout_width="190px"
+        android:layout_height="190px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:src="@mipmap/soscall1" />
+
+    <RelativeLayout
+        android:id="@+id/data"
+        android:layout_marginLeft="8px"
+        android:layout_width="240px"
+        android:layout_height="180px"
+        android:layout_toRightOf="@id/soscall"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/data1"
+            android:layout_width="160px"
+            android:layout_height="130px"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/statistics" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            android:layout_below="@id/data1"
+            android:text="Statistics"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/comment"
+        android:layout_marginLeft="8px"
+        android:layout_width="240px"
+        android:layout_height="180px"
+        android:layout_toRightOf="@id/data"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/comment1"
+            android:layout_width="160px"
+            android:layout_height="130px"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/comment" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:layout_below="@id/comment1"
+        android:text="Comment"/>
+    </RelativeLayout>
+
+<ImageView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:visibility="gone"
+    android:id="@+id/helpcenter"
+    android:layout_centerInParent="true"
+    app:layout_heightPercent="80%"
+    app:layout_widthPercent="80%"
+    android:src="@mipmap/helpcenter"/>
+</androidx.percentlayout.widget.PercentRelativeLayout>

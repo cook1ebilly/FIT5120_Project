@@ -1,55 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.percentlayout.widget.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:background="@mipmap/background2"
-    android:orientation="vertical"
 
     tools:context=".Aboutus">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:id="@+id/p1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="10%"
+        app:layout_widthPercent="100%" >
     <ImageView
         android:id="@+id/back_4"
         android:background="@drawable/bg_ripple"
-    android:layout_margin="10dp"
+        android:layout_margin="10dp"
+        android:layout_alignParentLeft="true"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@mipmap/previous"
 
-
-
         />
     <TextView
+        android:layout_toRightOf="@id/back_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
         android:text="About Us"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
-        android:textSize="40dp" /></LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:textSize="40dp" />
+</androidx.percentlayout.widget.PercentRelativeLayout>
 
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:layout_below="@id/p1"
+        android:id="@+id/p2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="100%" >
 
         <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
             android:id="@+id/gsy_vv"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="100%"
+            app:layout_widthPercent="100%"
+
             />
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
-
-
-
-    </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_below="@id/p2"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_widthPercent="100%"
+    app:layout_heightPercent="60%"
+    >
 
     <WebView
         android:layout_width="wrap_content"
@@ -65,14 +76,4 @@
 
 
 
-
-
-
-
-
-
-
-</LinearLayout>
-
-
-</LinearLayout>
+</androidx.percentlayout.widget.PercentRelativeLayout>
