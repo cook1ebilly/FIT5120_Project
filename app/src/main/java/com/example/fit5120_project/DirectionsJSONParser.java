@@ -1,5 +1,7 @@
 package com.example.fit5120_project;
 
+import android.util.Log;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
@@ -47,6 +49,31 @@ public class DirectionsJSONParser {
         }
 
         return routes;
+    }
+    public int parseDistance(JSONObject jObject){
+        JSONArray jRoutes = null;
+        JSONArray jLegs = null;
+        int res=0;
+        try {
+
+            jRoutes = jObject.getJSONArray("routes");
+
+            for(int i=0;i<jRoutes.length();i++){
+                jLegs = ( (JSONObject)jRoutes.get(i)).getJSONArray("legs");
+                if (jLegs.length()>0){
+                    JSONObject jsonObject= (JSONObject) jLegs.get(0);
+                    JSONObject d=jsonObject.getJSONObject("distance");
+                    int distance=d.getInt("value");
+                    Log.e("TAG", "parseDistance: "+distance );
+                    return distance;
+                }
+
+            }
+
+        }catch (JSONException e){
+            return -1;
+        }
+        return res;
     }
 
     private List decodePoly(String encoded) {

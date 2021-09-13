@@ -49,6 +49,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 
+import com.airbnb.lottie.L;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -57,6 +58,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -88,10 +90,10 @@ import database.SendAdapter;
 import database.TopicModel;
 import database.TopicUtils;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleMap.OnMyLocationClickListener {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationClickListener {
     List<Address> addressList;
-    RelativeLayout report, contact, data, comment,rle;
-    ImageView soscall, about,map,help,helpcenter,cross1,findlocation;
+    RelativeLayout report, contact, data, comment, rle;
+    ImageView soscall, about, map, help, helpcenter, cross1, findlocation;
     private MapView mMapView;
     EditText searchbar;
     ListView listView_s;
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
     private static final String OUT_JSON = "/json";
     List<TopicModel> topicModelList = new ArrayList<>();
-    int[] color={Color.RED,Color.BLUE,Color.GREEN,Color.YELLOW,Color.DKGRAY,Color.BLACK,Color.MAGENTA};
+    int[] color = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.DKGRAY, Color.BLACK, Color.MAGENTA};
 
     ArrayList<GooglePlaceModel> googlePlaceModels = new ArrayList<>();
     private GoogleMap mMap;
@@ -128,27 +130,27 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         place = intent.getStringExtra("report_place");
         report = findViewById(R.id.reportevent);
         contact = findViewById(R.id.contact);
-        rle=findViewById(R.id.rle3);
+        rle = findViewById(R.id.rle3);
         data = findViewById(R.id.data);
-        findlocation=findViewById(R.id.findlocation);
-        cross1=findViewById(R.id.cancel1);
+        findlocation = findViewById(R.id.findlocation);
+        cross1 = findViewById(R.id.cancel1);
         comment = findViewById(R.id.comment);
         soscall = findViewById(R.id.soscall);
         about = findViewById(R.id.information);
-        searchbar=findViewById(R.id.searchbar);
-        map=findViewById(R.id.searchmap);
-        find=findViewById(R.id.find);
-        listView_s=findViewById(R.id.listview1);
-        help=findViewById(R.id.help);
-        Intent i= getIntent();
-        k1=i.getDoubleExtra("k1",0);
-        k2=i.getDoubleExtra("k2",0);
+        searchbar = findViewById(R.id.searchbar);
+        map = findViewById(R.id.searchmap);
+        find = findViewById(R.id.find);
+        listView_s = findViewById(R.id.listview1);
+        help = findViewById(R.id.help);
+        Intent i = getIntent();
+        k1 = i.getDoubleExtra("k1", 0);
+        k2 = i.getDoubleExtra("k2", 0);
 
-        helpcenter=findViewById(R.id.helpcenter);
+        helpcenter = findViewById(R.id.helpcenter);
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (helpcenter.getVisibility()== View.GONE){
+                if (helpcenter.getVisibility() == View.GONE) {
                     helpcenter.setVisibility(View.VISIBLE);
 
 
@@ -180,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         helpcenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (helpcenter.getVisibility()== View.VISIBLE){
+                if (helpcenter.getVisibility() == View.VISIBLE) {
                     helpcenter.setVisibility(View.GONE);
 
 
@@ -206,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         find.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
+                if (b) {
                     find.setBackgroundResource(R.mipmap.incidentlocation);
                     if (MyContext.topicModelList.size() > 0) {
                         for (int i = 0; i < MyContext.topicModelList.size(); i++) {
@@ -217,21 +219,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             markerstar.setTag(0);
                         }
 
-                        if(dest!=null) {
+                        if (dest != null) {
                             drawPolylines(MyContext.mylocation, dest);
                         }
                     }
 
 
-                }else{
+                } else {
                     find.setBackgroundResource(R.mipmap.location);
-                    if(dest!=null) {
+                    if (dest != null) {
                         drawPolylines(MyContext.mylocation, dest);
                     }
                     mMap.clear();
-
-
-
 
 
                 }
@@ -251,9 +250,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
 
-                    drawPolylines(MyContext.mylocation,dest);
-
-
+                    drawPolylines(MyContext.mylocation, dest);
 
 
                 }
@@ -267,14 +264,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 rle.setVisibility(View.VISIBLE);
 
 
-
-
             }
         });
+
         searchbar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
 
 
             }
@@ -390,14 +385,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.getUiSettings().setZoomGesturesEnabled(true);
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyContext.mylocation, 20));
-      if (k1*k2!=0){
+        if (k1 * k2 != 0) {
 
-          mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(k1,k2), 20));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(k1, k2), 20));
 
 
-
-      }
-        mMap.addMarker(new MarkerOptions().position(MyContext.mylocation).title("Your are here!").icon(BitmapDescriptorFactory.fromResource(R.mipmap.mylocation)));
+        }
+        mMap.addMarker(new MarkerOptions().position(MyContext.mylocation).title("Your are here!").icon(BitmapDescriptorFactory.fromResource(R.mipmap.startpoint)));
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
@@ -413,23 +407,32 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         topicModelList.add(model);
                     }
                 }
+                if (( dest != null && marker.getPosition().latitude == dest.latitude &&
+                        marker.getPosition().longitude == dest.longitude)||(marker.getPosition().latitude == MyContext.mylocation.latitude &&
+                        marker.getPosition().longitude == MyContext.mylocation.longitude)) {
+                    return true;
+                }
                 if (topicModelList.size() > 0) {
-                    showDialog(topicModelList );
-
-                } else {
-                    showDialog(MyContext.topicModelList );
+                    showDialog(topicModelList);
 
                 }
+                Longitude="";
+                Latitude="";
                 return true;
             }
         });
-     if (k1*k2==0) {
-         moveToplace();
-     }
-
-
+        if (k1 * k2 == 0) {
+            moveToplace();
+        }
+        mMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+            @Override
+            public void onCameraChange(@NonNull CameraPosition cameraPosition) {
+                Log.e("TAG", "onCameraChange: " + cameraPosition.zoom);
+            }
+        });
 
     }
+
     private class GooglePlaces extends AsyncTask<String, String, String> {
 
         @Override
@@ -512,6 +515,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
     }
+
     private void moveToplace() {
         try {
             if (TextUtils.isEmpty(place)) {
@@ -532,6 +536,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
     }
+
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -592,6 +598,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         return latLng;
 
     }
+
     private void drawPolylines(LatLng origin, LatLng dest) {
         progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setMessage("Please Wait, Polyline between two locations is building.");
@@ -602,6 +609,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         MainActivity.DownloadTask downloadTask = new MainActivity.DownloadTask();
         downloadTask.execute(url);
     }
+
     private class DownloadTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... url) {
@@ -612,7 +620,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Log.d("Background Task", e.toString());
             }
             return data;
-        }  @Override
+        }
+
+        @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             MainActivity.ParserTask parserTask = new MainActivity.ParserTask();
@@ -630,6 +640,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 jObject = new JSONObject(jsonData[0]);
                 DirectionsJSONParser parser = new DirectionsJSONParser();
                 routes = parser.parse(jObject);
+
+
+                MyContext.distance = parser.parseDistance(jObject);
+                double latitude = (MyContext.mylocation.latitude + dest.latitude) / 2;
+                double longitude = (MyContext.mylocation.longitude + dest.longitude) / 2;
+                MyContext.movelocation = new LatLng(latitude, longitude);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -667,11 +683,46 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             polyline = mMap.addPolyline(lineOptions);
             mMap.addMarker(new MarkerOptions()
                     .position(dest)
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.flag)));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(dest, 14));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.endpoint)));
+            /* if (MyContext.distance)*/
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(MyContext.movelocation, transZoom(MyContext.distance)));
 
         }
     }
+
+    private int transZoom(int distance) {
+        int zoom = 14;
+        if (distance < 300) {
+            zoom = 18;
+        } else if (distance < 1000) {
+            zoom = 17;
+        } else if (distance < 2000) {
+            zoom = 15;
+        } else if (distance < 5000) {
+            zoom = 14;
+        } else if (distance < 15000) {
+            zoom = 12;
+        } else if (distance < 1000000) {
+            zoom = 6;
+        } else if (distance < 3000000) {
+            zoom = 5;
+        } else {
+            zoom = 4;
+        }
+
+       /* 786628 6
+       914629 6
+        1629789 5
+        2029010 5
+        1533738 5
+        2029875 5
+        3691279 4
+         891244 6
+          10249  12   1663 15   9746 12   3669 14    454 17  18 <300 */
+        return zoom;
+
+    }
+
 
     private String getDirectionsUrl(LatLng origin, LatLng dest) {
         String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
@@ -709,14 +760,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         return data;
     }
-    private void showDialog(List<TopicModel> topicModelList){
-        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder( MainActivity.this);
+
+    private void showDialog(List<TopicModel> topicModelList) {
+        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(true);
         View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.popwindow, null);
 
         delete = view.findViewById(R.id.btn_cancel);
         back = view.findViewById(R.id.btn_ok);
-        content=view.findViewById(R.id.topicinfo);
+        content = view.findViewById(R.id.topicinfo);
+        Log.e("TAG", "showDialog: "+topicModelList.get(0).id);
         content.setText("Occur times:" + " 1" + "\n" + "Year: " + topicModelList.get(0).year + "\n" +
                 "Topic: " + topicModelList.get(0).topic + "\n" + "Description: " + topicModelList.get(0).description +
                 "\n" + "Address: " + getAddress(Double.valueOf(topicModelList.get(0).latitude), Double.valueOf(topicModelList.get(0).longitude)));
@@ -740,34 +793,29 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new AlertDialog.Builder(view.getContext())
+                        .setTitle("Tip")
+                        .setMessage("Continue deletion?")
+                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                mMap.clear();
-                TopicUtils.delete(topicModelList.get(0).id);
-                dialog.dismiss();
-                Intent intent=new Intent(MainActivity.this, MainActivity.class);
+                                mMap.clear();
+                                TopicUtils.delete(topicModelList.get(0).id);
+                                dialog.dismiss();
+                                Intent intent = new Intent(MainActivity.this, MainActivity.class);
 
-                intent.putExtra("k1",Double.valueOf(topicModelList.get(0).latitude));
-                intent.putExtra("k2",Double.valueOf(topicModelList.get(0).longitude));
+                                intent.putExtra("k1", Double.valueOf(topicModelList.get(0).latitude));
+                                intent.putExtra("k2", Double.valueOf(topicModelList.get(0).longitude));
 
-                startActivity(intent);
-
-/*
-                MyContext.topicModelList=TopicUtils.get(MyContext.topicModelList);
-*/
-            /*    if (MyContext.topicModelList.size() > 0) {
-                    for (int i = 0; i < MyContext.topicModelList.size(); i++) {
-                        TopicModel model = MyContext.topicModelList.get(i);
-                        Marker markerstar = mMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(Double.valueOf(model.latitude), Double.valueOf(model.longitude)))
-                                .title(model.topic));
-                        markerstar.setTag(0);
+                                startActivity(intent);
+                            }
+                        }).setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
-                }*/
-               /* find.callOnClick();
-                find.callOnClick();*/
-
-
-
+                }).show();
 
 
 
@@ -779,8 +827,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         dialog.getWindow().setLayout((int) (dm.widthPixels * 0.8), (int) (dm.heightPixels * 0.5));
 
 
-
     }
+
     private String getAddress(double latitude, double longitude) {
 
         String address1 = "";
@@ -813,6 +861,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         return address1;
     }
+
     @Override
     public void onMyLocationClick(@NonNull Location location) {
         Log.e("location", "onMyLocationClick: ");
@@ -821,8 +870,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyContext.mylocation, 20));
 
     }
-
-
 
 
 }
