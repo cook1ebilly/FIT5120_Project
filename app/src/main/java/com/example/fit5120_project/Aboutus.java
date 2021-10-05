@@ -56,7 +56,7 @@ public class Aboutus extends AppCompatActivity {
         web=findViewById(R.id.html);
         web.getSettings().setBuiltInZoomControls(true);
         web.getSettings().setDisplayZoomControls(false);
-        web.loadUrl("file:///android_asset/introduction.html");
+        web.loadUrl("file:///android_asset/test.html");
 
         /*StrictMode.VmPolicy.Builder builder2 = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder2.build());

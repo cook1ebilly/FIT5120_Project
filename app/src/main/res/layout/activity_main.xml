@@ -67,7 +67,7 @@
         android:layout_height="120px"
         android:layout_alignParentRight="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="140dp"
         android:src="@mipmap/melocation"
 
         />
@@ -90,16 +90,7 @@
 
         android:src="@mipmap/help" />
 
-    <ToggleButton
-        android:id="@+id/find"
-        android:layout_width="120px"
-        android:layout_height="120px"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="140dp"
-        android:background="@mipmap/location"
-        android:text=""
-        android:textOff=""
-        android:textOn="" />
+
 
 <RelativeLayout
     android:id="@+id/reportevent"
@@ -182,29 +173,34 @@
             android:layout_below="@id/data1"
             android:text="Statistics"/>
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/comment"
-        android:layout_marginLeft="8px"
         android:layout_width="240px"
         android:layout_height="180px"
-        android:layout_toRightOf="@id/data"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="8px"
+        android:layout_toRightOf="@id/data">
 
-        <ImageView
-            android:id="@+id/comment1"
+        <ToggleButton
+            android:id="@+id/find"
             android:layout_width="160px"
             android:layout_height="130px"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/comment" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        android:layout_centerHorizontal="true"
-        android:singleLine="true"
-        android:layout_below="@id/comment1"
-        android:text="Comment"/>
+            android:background="@mipmap/location"
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/find"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            android:text="Show Incidents"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
     </RelativeLayout>
 
 <ImageView

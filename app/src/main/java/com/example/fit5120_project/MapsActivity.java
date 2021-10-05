@@ -59,6 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.OnRequestPermissionsResultCallback {
     ListView listView;
     String myAddress;
+
     private GoogleMap map;
     private ActivityMapsBinding binding;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
@@ -418,7 +419,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void checkAndSend(contact contact) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
                 == PackageManager.PERMISSION_GRANTED) {
-            sendSMSS("Hi!"+" "+contact.getName()+"I need your help now! My location is"+ " "+myAddress, contact.getPhoneNumber());
+            sendSMSS("Hi!"+" "+contact.getName()+"I need your help now! My location is"+ myAddress+"("+MyContext.mylocation+")", contact.getPhoneNumber());
 
         } else {
             PermissionUtils.requestPermission(this,

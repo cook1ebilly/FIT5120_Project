@@ -1,31 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4E72BE"
 
     tools:context=".Aboutus">
+
     <ImageView
         android:id="@+id/back_2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+
+
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/bg_ripple"
-        android:layout_margin="10dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@mipmap/previous"
+        android:src="@mipmap/back" />
 
-
-
-        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/back_2"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Statistics"
-        android:textColor="#ffffff"
-        android:textSize="40dp" />
+        android:textColor="@color/black"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/back_2"
+        android:text="Different offence changes over years(2011-2020)"
+        android:textSize="18sp" />
 
 
+    <TextView
+        android:id="@+id/offence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv1"
+        />
 
-</LinearLayout>
+    <com.veken.chartview.view.LineChartView
+        android:id="@+id/linechart_view"
+
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/offence"
+        app:clickable="true"
+        app:defaultStrokeWidth="0.5dp"
+        app:defaultTextSize="10sp"
+        app:endColor="@color/endColor"
+        app:isNeedBg="true"
+        app:pointClickRadius="3dp"
+        app:pointDefaultRadius="2dp"
+        app:showPicResource="@mipmap/ic_launcher"
+        app:startColor="@color/startColor" />
+
+    <ImageView
+        android:id="@+id/plot"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/offence" />
+
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linechart_view"
+
+        android:text="Sexual assault had the highest in 2011 at 72.60 and was 36,200 % higher than Manslaughter, which had the lowest 2011 at 0.20%. 2011 and 2012 are positively correlated with each other.FSexual assault accounted for 92.96% of 2011.Attempted Murder in 2017 is the major contributor with 18.03%. In 2017 the criminal activities have shown an significant uptrend across all consecutive years." />
+
+    <Button
+        android:id="@+id/change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv2"
+        android:text="Next" />
+</RelativeLayout>
